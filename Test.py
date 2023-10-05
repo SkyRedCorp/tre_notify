@@ -1,38 +1,29 @@
 import datetime
 
+today = datetime.date.today()
+
+target_dates = {
+    1: datetime.date(today.year, 1, 27),
+    2: datetime.date(today.year, 2, 28),
+    3: datetime.date(today.year, 3, 28),
+    4: datetime.date(today.year, 4, 28),
+    5: datetime.date(today.year, 5, 26),
+    6: datetime.date(today.year, 6, 28),
+    7: datetime.date(today.year, 7, 28),
+    8: datetime.date(today.year, 8, 28),
+    9: datetime.date(today.year, 9, 28), 
+    10: datetime.date(today.year, 10, 27),
+    11: datetime.date(today.year, 11, 28),
+    12: datetime.date(today.year, 12, 28),
+}
+
 def check_date():
-    today = datetime.date.today()
-    target_dates = {
-        1: 27,
-        2: 28,
-        3: 28,
-        4: 28,
-        5: 26,
-        6: 28,
-        7: 28,
-        8: 28,
-        9: 28, 
-        10: 27,
-        11: 28,
-        12: 28,
-        # Format: M - D
-    }
-
     current_month = today.month
-
-    if current_month in target_dates:
-        target_day = target_dates[current_month]
-        target_date = datetime.date(today.year, current_month, target_day)
-
-        if today == target_date:
-            print("Hoy pagan!")
-        else:
-            def days_until_pay():
-                return (target_date - today).days
-            
-            days_remaining = days_until_pay()
-            print(f"Faltan: {days_remaining} días para que paguen.")
-    else:
+    try:
+        target_date = target_dates[current_month]
+        days_remaining = (target_date - today).days
+        print("Hoy pagan!" if days_remaining == 0 else f"Faltan: {days_remaining} dias para que paguen.")
+    except KeyError:
         print(f"No target date defined for {current_month}.")
 
 check_date()
