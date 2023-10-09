@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: © 2023 Peter Tacon <contacto@petertacon.com>
 # Original code made by: Santiago Paipilla
-# Optimized by: Juan Francisco 
+# Optimized by: Juan Francisco Hamon
 # SPDX-License-Identifier: MIT
 
 import rtc
